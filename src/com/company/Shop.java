@@ -8,6 +8,7 @@ public class Shop {
     int CARS_COUNT = 10;
     long BUYER_WAIT_TIME = 1000;
     long TOYOTA_PRODUCTION_TIME = 2000;
+    int FIRST_CAR_TO_BUY = 0;
 
     List<Car> cars = new ArrayList<>(CARS_COUNT);
 
@@ -20,7 +21,7 @@ public class Shop {
                 Thread.sleep(BUYER_WAIT_TIME);
             }
             System.out.println(Thread.currentThread().getName() + " уехал на новенькой Toyota ");
-            cars.remove(0);
+            cars.remove(FIRST_CAR_TO_BUY);
         } catch (InterruptedException err) {
             err.printStackTrace();
         }
