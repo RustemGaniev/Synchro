@@ -9,7 +9,7 @@ public class Main {
                 "Покупатель 6", "Покупатель 7", "Покупатель 8", "Покупатель 9", "Покупатель 10"};
         for (String tN : threadName) {
             new Thread(shop :: buyCar, tN).start();
-            new Thread(shop :: productionCar, " Автосалон ").start();
         }
+        new Thread(shop :: productionCar, " Автосалон ").start();
     }
 }

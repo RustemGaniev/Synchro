@@ -31,14 +31,16 @@ public class Shop {
 
     public void productionCar() {
 
-        System.out.println(" Завод Toyota отгружает автомобиль в салон ");
         try {
-            cars.add(new Car());
-            synchronized (this) {
-                System.out.println(" Завод Toyota поставил один автомобиль в автосалон");
-                notify();
+            for (int i = 0; i < CARS_COUNT; i++) {
+                System.out.println(" Завод Toyota отгружает автомобиль в салон ");
+                synchronized (this) {
+                    cars.add(new Car());
+                    System.out.println(" Завод Toyota поставил один автомобиль в автосалон");
+                    notify();
+                }
+                Thread.sleep(TOYOTA_PRODUCTION_TIME);
             }
-            Thread.sleep(TOYOTA_PRODUCTION_TIME);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
